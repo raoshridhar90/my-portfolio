@@ -1,4 +1,4 @@
-baseURL = 'https://yourusername.github.io/'
+baseURL = 'https://raoshridhar90.github.io/my-portfolio/'
 title = 'My Portfolio'
 theme = 'PaperMod'
 
@@ -6,28 +6,28 @@ pagination.pagerSize = 5
 enableRobotsTXT = true
 languageCode = 'en-us'
 
+# normalize paths so project sites work
+relativeURLs = true
+canonifyURLs = true
+
 [menu]
 
   [[menu.main]]
-    identifier = 'about'
     name = 'About'
-    url = '/about/'
+    pageRef = 'about'
     weight = 1
 
   [[menu.main]]
-    identifier = 'projects'
     name = 'Projects'
-    url = '/projects/'
+    pageRef = 'projects'   # section: content/projects/_index.md
     weight = 2
 
   [[menu.main]]
-    identifier = 'posts'
     name = 'Blog'
-    url = '/posts/'
+    pageRef = 'posts'      # section: content/posts/_index.md
     weight = 3
 
   [[menu.main]]
-    identifier = 'contact'
     name = 'Contact'
-    url = '/contact/'
+    pageRef = 'contact'
     weight = 4
