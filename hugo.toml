@@ -31,3 +31,56 @@ canonifyURLs = true
     name = 'Contact'
     pageRef = 'contact'
     weight = 4
+
+# --- keep your existing baseURL, languageCode, theme, menus above this line ---
+
+[params]
+defaultTheme = "auto"
+disableThemeToggle = false
+ShowBreadCrumbs = true
+ShowReadingTime = true
+ShowCodeCopyButtons = true
+showtoc = false
+hideMeta = false
+author = "Sridhar Rao"
+
+[params.profileMode]
+enabled = true
+title = "Sridhar Rao"
+subtitle = "Technical Writer Portfolio"
+imageUrl = "images/profile.jpg"   # put the file at static/images/profile.jpg
+imageTitle = "Profile photo"
+imageWidth = 160
+imageHeight = 160
+
+# Use array-of-tables (avoids inline table pitfalls)
+[[params.profileMode.buttons]]
+name = "Projects"
+url  = "projects/"
+
+[[params.profileMode.buttons]]
+name = "Blog"
+url  = "posts/"
+
+[[params.profileMode.buttons]]
+name = "Contact"
+url  = "contact/"
+
+# Social icons
+[[params.socialIcons]]
+name = "github"
+url  = "https://github.com/raoshridhar90"
+
+[[params.socialIcons]]
+name = "linkedin"
+url  = "https://www.linkedin.com/in/raoshridhar90/"
+
+[[params.socialIcons]]
+name = "email"
+url  = "mailto:you@example.com"
+
+# Favicons / OG image (optional)
+[params.assets]
+favicon          = "favicon.ico"
+apple_touch_icon = "favicon.png"
+ogImage          = "og.png"
