@@ -1,0 +1,26 @@
+﻿---
+import Layout from "../layouts/Layout.astro";
+
+// version-agnostic base helper (no astro:config)
+const base = import.meta.env.BASE_URL || '/';
+const H = (p) => `${base}${p.replace(/^\/+/, '')}`;
+---
+
+<Layout title="Sridhar Rao — Portfolio" description="Technical Writer and Developer">
+  <section class="hero">
+    <!-- Safe to delete this <img> if you don't have a photo yet -->
+    <img 
+  src={H('images/profile.jpg')} 
+  alt="Profile photo" 
+  style="width:120px; height:120px; border-radius:999px; object-fit:cover; box-shadow:0 4px 10px rgba(0,0,0,.15);" 
+/>
+    <div>
+      <h1 style="margin:0">Hi, I am Sridhar</h1>
+      <p class="muted">Technical Writer &middot; Developer &middot; I build fast, clear sites and docs.</p>
+      <p class="row">
+        <a class="btn primary" href={H('projects/')}>View Projects</a>
+        <a class="btn" href={H('contact/')}>Contact</a>
+      </p>
+    </div>
+  </section>
+</Layout>

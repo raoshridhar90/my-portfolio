@@ -1,0 +1,56 @@
+﻿---
+const base = import.meta.env.BASE_URL || '/';
+const H = (p) => `${base}${p.replace(/^\/+/, '')}`;
+
+const { title = "Portfolio", description = "" } = Astro.props;
+---
+<html lang="en" class="bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href={H('favicon.ico')} />
+    <style>
+      :root { --max: 960px; }
+      * { box-sizing: border-box; }
+      body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans"; }
+      header, main, footer { margin: 0 auto; max-width: var(--max); padding: 16px; }
+      nav a { text-decoration: none; padding: 8px 12px; border-radius: 10px; }
+      nav a:hover { background: rgba(127,127,127,.12); }
+      .brand { font-weight: 700; letter-spacing: .2px; }
+      .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); }
+      .card { border:1px solid rgba(127,127,127,.25); border-radius:16px; padding:16px; box-shadow: 0 8px 24px rgba(0,0,0,.06); transition:.15s transform,.15s box-shadow; }
+      .card:hover { transform: translateY(-2px); box-shadow:0 12px 30px rgba(0,0,0,.10); }
+      .muted { color: rgba(127,127,127,.9); }
+      .row { display:flex; align-items:center; gap:12px; flex-wrap: wrap; }
+      .hero { display:flex; align-items:center; gap:24px; flex-wrap: wrap; }
+      .hero img { width:96px; height:96px; border-radius:999px; object-fit:cover; }
+      .btn { display:inline-block; padding:10px 14px; border-radius:12px; border:1px solid currentColor; text-decoration:none; }
+      .btn.primary { background: currentColor; color: white; }
+      .right { margin-left:auto }
+    </style>
+    <script>
+      const key="prefers-dark"; const apply=v=>document.documentElement.classList.toggle("dark", v);
+      try{const saved=localStorage.getItem(key); if(saved!==null) apply(saved==="true");}catch{}
+    </script>
+  </head>
+  <body>
+    <header class="row">
+      <a href={H('/')} class="brand">Sridhar Rao</a>
+      <nav class="right row">
+        <a href={H('projects/')}>Projects</a>
+        <a href={H('about/')}>About</a>
+        <a href={H('contact/')}>Contact</a>
+        <button class="btn" onclick="
+          const d=document.documentElement; const on=!d.classList.contains('dark');
+          d.classList.toggle('dark', on); try{localStorage.setItem('prefers-dark', on)}catch{}">Toggle theme</button>
+      </nav>
+    </header>
+    <main><slot /></main>
+    <footer class="muted" style="padding:32px 16px; text-align:center">
+      &copy; {new Date().getFullYear()} Sridhar Rao · Built with Astro
+    </footer>
+  </body>
+</html>
+
